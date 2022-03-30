@@ -4,6 +4,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSliderModule } from '@angular/material/slider';
 
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [],
@@ -11,8 +12,8 @@ import { MatSliderModule } from '@angular/material/slider';
     CommonModule,
     MatSliderModule,
     MatBadgeModule,
-    MatButtonModule
+    MatButtonModule,MatCheckboxModule
   ],
-  exports: [MatSliderModule, MatBadgeModule, MatButtonModule]
+  exports: [MatSliderModule, MatBadgeModule, MatButtonModule,MatCheckboxModule]
 })
 export class MaterialModule { }

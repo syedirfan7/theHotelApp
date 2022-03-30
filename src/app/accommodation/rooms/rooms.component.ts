@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Task } from 'src/app/shared/interfaces/task';
+import { NavigationService } from 'src/app/shared/services/navigation.service';
 
 @Component({
   selector: 'app-rooms',
@@ -6,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./rooms.component.sass']
 })
 export class RoomsComponent implements OnInit {
+  data: Task[] = [];
+  constructor(private navigation: NavigationService, private route: Router) {
+    this.data = this.route.getCurrentNavigation()?.extras.state as Task[]
 
-  constructor() { }
+  }
 
   ngOnInit(): void {
   }
-
+  goBack() {
+    this.navigation.back();
+  }
 }

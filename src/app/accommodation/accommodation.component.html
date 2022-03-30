@@ -1,1 +1,8 @@
-<p>accomodation works!</p>
+<!-- parent component  -->
+<div class="accommodation">
+    <p>Search Rooms</p>
+    <p><button mat-raised-button color="primary" (click)='search()'>Search</button></p>
+    <p><button mat-raised-button color="primary" (click)='goBack()'>Back</button></p>
+    <!-- child component  -->
+    <app-multi-select-dropdown [items]="dropDownContent" (selectionReady)="setSelectionData($event)"></app-multi-select-dropdown>
+</div>

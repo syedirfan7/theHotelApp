@@ -1,0 +1,25 @@
+<p><button mat-raised-button color="warn" (click)='clearAllSelections()'>Clear All Selections </button></p>
+<p><button mat-raised-button color="accent" (click)='sendSelection()'>Send Selection </button></p>
+
+<section *ngFor="let item of items" class="example-section">
+    <span class="example-list-section">
+      <mat-checkbox class="example-margin"
+                    [checked]="item.selected"
+                    [color]="item.color"
+                    [indeterminate]="someComplete(item)"
+                    (change)="setAll($event.checked,item)">
+        {{item.name}}
+      </mat-checkbox>
+    </span>
+    <span class="example-list-section">
+      <ul>
+        <li *ngFor="let subtask of item.subtasks">
+          <mat-checkbox [(ngModel)]="subtask.selected"
+                        [color]="subtask.color"
+                        (ngModelChange)="updateAllComplete(item)">
+            {{subtask.name}}
+          </mat-checkbox>
+        </li>
+      </ul>
+    </span>
+  </section>
